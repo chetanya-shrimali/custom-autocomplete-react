@@ -1,10 +1,17 @@
 import "./styles.css";
-
+import Autocomplete from "./components/autocomplete/autocomplete";
+import data from "./data";
 export default function App() {
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+      <ul>
+        <li>api calls</li>
+        <li>form errors</li>
+        <li>routing</li>
+        <li>file upload</li>
+        <li>table</li>
+      </ul>
+      <Autocomplete data={data} />
     </div>
   );
 }
