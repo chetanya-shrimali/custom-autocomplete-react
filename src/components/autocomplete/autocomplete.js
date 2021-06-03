@@ -5,13 +5,14 @@ function Autocomplete({ data }) {
   const [displayList, setDisplayList] = useState([]);
   const [inputText, setInputText] = useState("");
   const filteredResults = (value) => {
-    console.log(inputText);
+    console.log(data, value);
     if (value) {
       setDisplayList(
         data.filter((res) => {
+          // str.startsWith(
           return (
-            res.title.toLowerCase().indexOf(value) !== -1 ||
-            res.description.toLowerCase() !== -1
+            res.name.toLowerCase().indexOf(value) !== -1 ||
+            res.email.toLowerCase().indexOf(value) !== -1
           );
         })
       );
@@ -21,7 +22,7 @@ function Autocomplete({ data }) {
   };
 
   const onSelect = (listItem) => {
-    setInputText(listItem.title);
+    setInputText(listItem.name);
     setDisplayList([]);
   };
 

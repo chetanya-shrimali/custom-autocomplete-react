@@ -6,8 +6,8 @@ function ListItem({ item, onSelect }) {
       }}
       style={{ cursor: "pointer" }}
     >
-      <li>{item.title}</li>
-      <li>{item.description}</li>
+      <li>{item.name}</li>
+      <li>{item.email}</li>
       <hr />
     </div>
   );
