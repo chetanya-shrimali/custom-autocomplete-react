@@ -11,8 +11,17 @@ function AxiosAPI() {
   const [pageNumber, setPageNumber] = useState(1);
 
   const getPosts = async (pageNumber) => {
-    const res = await API.get(`posts?_page=${pageNumber}`);
-    return res.data;
+    try {
+      let params = {
+        _page: pageNumber
+      };
+      console.log({ params });
+      const res = await API.get("posts", { params });
+      console.log(res);
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const postPost = async () => {
