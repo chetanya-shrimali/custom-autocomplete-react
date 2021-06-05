@@ -33,7 +33,7 @@ function AxiosAPI() {
   useEffect(() => {
     getPosts(pageNumber).then((res) => {
       console.log(res);
-      setPostsList([...postsList, ...res]);
+      setPostsList((p) => [...p, ...res]);
     });
   }, [pageNumber]);
 
