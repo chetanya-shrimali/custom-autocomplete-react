@@ -3,7 +3,10 @@ import { useEffect, useState } from "react";
 
 // https://jsonplaceholder.typicode.com/posts
 const API = axios.create({
-  baseURL: "https://jsonplaceholder.typicode.com/"
+  baseURL: "https://jsonplaceholder.typicode.com/",
+  headers: {
+    "X-Auth-Key": "token123"
+  }
 });
 
 function AxiosAPI() {
@@ -25,10 +28,10 @@ function AxiosAPI() {
   };
 
   const postPost = async () => {
-    const post = {
+    const params = {
       title: "new title"
     };
-    const res = await API.post("posts", { post });
+    const res = await API.post("posts", params);
     console.log(res);
     return res;
   };
