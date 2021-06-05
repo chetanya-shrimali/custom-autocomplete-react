@@ -10,23 +10,24 @@ function AxiosAPI() {
   const [postsList, setPostsList] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
 
-  const getPosts = (pageNumber) => {
-    return API.get(`posts?_page=${pageNumber}`).then((res) => {
-      // setPostsList(res.data);
-      // console.log(res);
-      return res.data;
-    });
+  const getPosts = async (pageNumber) => {
+    const res = await API.get(`posts?_page=${pageNumber}`);
+    return res.data;
   };
 
-  const postPost = () => {
+  const postPost = async () => {
     const post = {
       title: "new title"
     };
-    return API.post("posts", { post }).then((res) => console.log(res));
+    const res = await API.post("posts", { post });
+    console.log(res);
+    return res;
   };
 
-  const deletePost = () => {
-    return API.delete("posts/1").then((res) => console.log(res));
+  const deletePost = async () => {
+    const res = await API.delete("posts/1");
+    console.log(res);
+    return res;
   };
 
   useEffect(() => {
